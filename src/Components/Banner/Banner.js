@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import axios from "./axios";
-import requests from "./request";
+import axios from "../../axios";
+import requests from "../../request";
 import "./Banner.css";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
+      const request = await axios.get(requests.fetchTrending);
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)
@@ -16,7 +16,6 @@ function Banner() {
     }
     fetchData();
   }, []);
-  console.log(movie);
 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -27,6 +26,7 @@ function Banner() {
       style={{
         backgroundSize: "cover",
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundPosition: "center",
       }}
     >
       <div className="banner__content">
@@ -37,9 +37,9 @@ function Banner() {
         <div className="banner__buttons">
           <button className="banner__button">Play</button>
           <button className="banner__button">My List</button>
-          <h1 className="banner__description">
-            {truncate(movie?.overview, 250)}
-          </h1>
+        </div>
+        <div className="banner__description">
+          <p>{truncate(movie?.overview, 250)}</p>
         </div>
       </div>
       <div className="banner--fadebottom" />

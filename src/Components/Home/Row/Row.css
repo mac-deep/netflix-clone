@@ -1,0 +1,51 @@
+.row {
+  margin-left: 20px;
+  color: white;
+  transition: all 0.4s ease-in-out;
+}
+
+.row__posters:first-child {
+  margin-top: 20px;
+}
+.row__posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 10px 20px 0 20px;
+  height: 220px;
+  transition: all 0.4s ease;
+}
+
+.row__posters .row__poster {
+  height: 220px;
+  width: 134px;
+}
+
+.row__posters img {
+  object-fit: contain;
+  max-height: 200px;
+  margin-right: 10px;
+  transition: transform 450ms;
+  cursor: pointer;
+}
+
+.row__poster:hover {
+  transform: scale(1.08);
+}
+
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row h2 {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-size: 2rem;
+  font-family: "Bebas Neue", cursive;
+  color: #e22f38;
+}
+
+.row__link {
+  width: 154px;
+  height: 200px;
+}

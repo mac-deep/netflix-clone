@@ -1,26 +1,23 @@
 import "./App.css";
-import Row from "./Row";
-import requests from "./request";
-import Banner from "./Banner";
-import Navbar from "./Navbar";
+import Home from "./Components/Home/Home";
+// import requests from "./request";
+
+import Navbar from "./Components/Navbar/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Fullpage from "./Components/Fullpage/Fullpage";
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
-      <Banner />
-      <Row
-        title="Netflix Originals"
-        fetchUrl={requests.fetchNetflixOriginals}
-        isLargeRow
-      />
-      <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-      <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-      <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-      <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-      <Row title="Romance movies" fetchUrl={requests.fetchRomanceMovies} />
-      <Row title="Documentraries" fetchUrl={requests.fetchDocumentaries} />
-    </div>
+    <Router>
+      <div className="app" id="style-1">
+        <Navbar />
+
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/movie/:id" component={Fullpage} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

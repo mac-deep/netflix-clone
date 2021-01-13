@@ -2,6 +2,7 @@
   color: white;
   object-fit: contain;
   height: 448px;
+  width: 100%;
 }
 
 .banner__content {
@@ -14,15 +15,18 @@
   font-size: 3rem;
   font-weight: 800;
   padding-bottom: 0.3rem;
+  text-shadow: 5px 5px 5px rgba(37, 37, 37, 0.61);
 }
 
 .banner__description {
   width: 45rem;
-  line-height: 1.3rem;
+  line-height: 1rem;
   padding-top: 1rem;
   font-size: 0.8rem;
+  font-weight: 500;
   height: 80px;
-  max-width: 360px;
+
+  max-width: 400px;
 }
 
 .banner__button {
@@ -51,4 +55,13 @@
     rgba(37, 37, 37, 0.61),
     #111
   );
+}
+
+@media (max-width: 750px) {
+  .banner__description {
+    max-width: 320px;
+  }
+  .banner--fadebottom {
+    height: 5rem;
+  }
 }
